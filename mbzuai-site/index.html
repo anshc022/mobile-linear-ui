@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Global University — Shaping the Future of AI</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1a1a2e;--accent:#e94560;--gold:#f5a623;--light:#f8f9fa;--gray:#6c757d;--white:#fff;--transition:0.3s ease}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#333;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:var(--transition);background:transparent}
+.nav.scrolled{background:var(--navy);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+.nav-logo{font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:.5px}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.9);font-size:.95rem;font-weight:500;position:relative;padding:.25rem 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:var(--transition)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--accent);color:var(--white)!important;padding:.6rem 1.5rem;border-radius:4px;font-weight:600}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:#d63050}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.hamburger span{width:25px;height:2px;background:var(--white);transition:var(--transition)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,var(--navy) 0%,#16213e 50%,#0f3460 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");opacity:.8}
+.hero-particles{position:absolute;inset:0;overflow:hidden}
+.hero-particles div{position:absolute;width:2px;height:2px;background:rgba(255,255,255,.3);border-radius:50%;animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:0 2rem}
+.hero-badge{display:inline-block;background:rgba(233,69,96,.15);color:var(--accent);padding:.5rem 1.5rem;border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;border:1px solid rgba(233,69,96,.3)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);color:var(--white);font-weight:800;line-height:1.1;margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.25rem;color:rgba(255,255,255,.75);max-width:650px;margin:0 auto 2.5rem}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:4px;font-weight:600;font-size:1rem;transition:var(--transition);cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:var(--white)}
+.btn-primary:hover{background:#d63050;transform:translateY(-2px)}
+.btn-outline{border:2px solid rgba(255,255,255,.4);color:var(--white);background:transparent}
+.btn-outline:hover{border-color:var(--white);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.85rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* SECTIONS */
+section{padding:6rem 2rem}
+.section-header{text-align:center;max-width:700px;margin:0 auto 4rem}
+.section-header h2{font-size:2.5rem;color:var(--navy);margin-bottom:1rem;font-weight:700}
+.section-header p{color:var(--gray);font-size:1.1rem}
+.section-label{display:inline-block;color:var(--accent);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.75rem}
+.container{max-width:1200px;margin:0 auto}
+
+/* PROGRAMS */
+.programs{background:var(--light)}
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.program-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:var(--transition);position:relative}
+.program-card:hover{transform:translateY(-8px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.program-card-top{height:200px;position:relative;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.program-card:nth-child(1) .program-card-top{background:linear-gradient(135deg,#667eea,#764ba2)}
+.program-card:nth-child(2) .program-card-top{background:linear-gradient(135deg,#f093fb,#f5576c)}
+.program-card:nth-child(3) .program-card-top{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+.program-card-body{padding:2rem}
+.program-card-body h3{font-size:1.4rem;color:var(--navy);margin-bottom:.75rem}
+.program-card-body p{color:var(--gray);font-size:.95rem;margin-bottom:1.5rem}
+.program-card-body .btn{font-size:.9rem;padding:.6rem 1.5rem}
+
+/* RESEARCH */
+.research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.research-card{padding:2.5rem 2rem;border-radius:12px;background:var(--white);border:1px solid #e9ecef;text-align:center;transition:var(--transition)}
+.research-card:hover{border-color:var(--accent);box-shadow:0 8px 30px rgba(233,69,96,.1);transform:translateY(-4px)}
+.research-icon{font-size:3rem;margin-bottom:1rem}
+.research-card h3{font-size:1.2rem;color:var(--navy);margin-bottom:.5rem}
+.research-card p{color:var(--gray);font-size:.9rem}
+
+/* STATS */
+.stats{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;border-radius:50%;background:rgba(233,69,96,.08)}
+.stats .section-header h2{color:var(--white)}
+.stats .section-header p{color:rgba(255,255,255,.6)}
+.stats .section-label{color:var(--gold)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;position:relative;z-index:1}
+.stat-item{text-align:center;padding:2rem}
+.stat-number{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.stat-label{font-size:1rem;color:rgba(255,255,255,.7);font-weight:500}
+
+/* NEWS */
+.news{background:var(--light)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+.news-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:var(--transition)}
+.news-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.news-img{height:200px;position:relative;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.news-card:nth-child(1) .news-img{background:linear-gradient(135deg,#a8edea,#fed6e3)}
+.news-card:nth-child(2) .news-img{background:linear-gradient(135deg,#ffecd2,#fcb69f)}
+.news-card:nth-child(3) .news-img{background:linear-gradient(135deg,#d4fc79,#96e6a1)}
+.news-body{padding:1.5rem 2rem 2rem}
+.news-date{font-size:.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.news-body h3{font-size:1.15rem;color:var(--navy);margin:.5rem 0;line-height:1.4}
+.news-body p{color:var(--gray);font-size:.9rem}
+
+/* PARTNERS */
+.partners-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:3rem}
+.partner{width:120px;height:60px;display:flex;align-items:center;justify-content:center;opacity:.4;transition:var(--transition);font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:1px}
+.partner:hover{opacity:1}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--navy),#0f3460);text-align:center;padding:5rem 2rem}
+.cta-section h2{color:var(--white);font-size:2.5rem;margin-bottom:1rem}
+.cta-section p{color:rgba(255,255,255,.7);font-size:1.15rem;max-width:600px;margin:0 auto 2rem}
+
+/* FOOTER */
+.footer{background:#0d0d1a;color:rgba(255,255,255,.6);padding:4rem 2rem 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto}
+.footer h4{color:var(--white);font-size:1rem;margin-bottom:1.25rem;font-weight:600}
+.footer-about p{font-size:.9rem;line-height:1.7;margin-top:.75rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-links a{font-size:.9rem;transition:var(--transition)}
+.footer-links a:hover{color:var(--accent)}
+.footer-social{display:flex;gap:1rem;margin-top:1rem}
+.footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:var(--transition)}
+.footer-social a:hover{background:var(--accent);border-color:var(--accent);color:var(--white)}
+.footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;margin-top:3rem;font-size:.85rem}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.nav-links.open{display:flex}
+.hamburger{display:flex}
+.footer-grid{grid-template-columns:1fr 1fr}
+.hero h1{font-size:2.2rem}
+.stat-number{font-size:2.5rem}
+.section-header h2{font-size:2rem}
+}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.programs-grid,.news-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo"><span>AI</span> Global University</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#stats">Facts</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌍 World-Class AI Education</div>
+    <h1>Shaping the Future of <em>Artificial Intelligence</em></h1>
+    <p>Join a global community of researchers, innovators, and thought leaders pushing the boundaries of AI for the benefit of humanity.</p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn btn-primary">Explore Programs →</a>
+      <a href="#research" class="btn btn-outline">Our Research</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to explore ↓</div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Academic Programs</div>
+      <h2>World-Class Degrees in AI</h2>
+      <p>Our programs are designed to produce the next generation of AI leaders, researchers, and entrepreneurs.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="program-card-top">🎓</div>
+        <div class="program-card-body">
+          <h3>Undergraduate Programs</h3>
+          <p>Build a strong foundation in artificial intelligence, mathematics, and computer science with our rigorous BSc curriculum.</p>
+          <a href="#" class="btn btn-primary">Learn More →</a>
+        </div>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-card-top">🔬</div>
+        <div class="program-card-body">
+          <h3>Master's Programs</h3>
+          <p>Specialize in cutting-edge AI disciplines through advanced coursework and hands-on research with world-renowned faculty.</p>
+          <a href="#" class="btn btn-primary">Learn More →</a>
+        </div>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-card-top">🧠</div>
+        <div class="program-card-body">
+          <h3>Doctoral Programs</h3>
+          <p>Conduct groundbreaking research at the frontier of AI. Full funding, mentorship, and access to state-of-the-art labs.</p>
+          <a href="#" class="btn btn-primary">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Research Excellence</div>
+      <h2>Pioneering AI Research</h2>
+      <p>Our faculty and students tackle the most challenging problems across core areas of artificial intelligence.</p>
+    </div>
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="research-icon">👁️</div>
+        <h3>Computer Vision</h3>
+        <p>Advancing how machines perceive and understand the visual world through deep learning and multimodal AI.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">💬</div>
+        <h3>Natural Language Processing</h3>
+        <p>Building systems that understand, generate, and reason with human language at scale.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">⚡</div>
+        <h3>Machine Learning</h3>
+        <p>Developing novel algorithms and theoretical foundations for learning, optimization, and generalization.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">🤖</div>
+        <h3>Robotics</h3>
+        <p>Creating intelligent autonomous systems that interact with and adapt to the physical world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Fast Facts</div>
+      <h2>We Are Proud of Our Numbers</h2>
+      <p>A growing community of excellence, diversity, and global impact.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-number" data-target="500">0</div><div class="stat-label">Students Enrolled</div></div>
+      <div class="stat-item reveal"><div class="stat-number" data-target="50">0</div><div class="stat-label">World-Class Faculty</div></div>
+      <div class="stat-item reveal"><div class="stat-number" data-target="30">0</div><div class="stat-label">Countries Represented</div></div>
+      <div class="stat-item reveal"><div class="stat-number" data-target="10">0</div><div class="stat-label">Global Ranking</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news" id="news">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Latest News</div>
+      <h2>What's Happening at AIGU</h2>
+      <p>Stay updated with breakthroughs, events, and stories from our community.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card reveal">
+        <div class="news-img">🏆</div>
+        <div class="news-body">
+          <div class="news-date">February 15, 2026</div>
+          <h3>AIGU Team Wins Best Paper Award at AAAI 2026</h3>
+          <p>Our researchers received top honors for their work on efficient transformer architectures for edge devices.</p>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-img">🤝</div>
+        <div class="news-body">
+          <div class="news-date">January 28, 2026</div>
+          <h3>New Partnership with Leading Tech Companies Announced</h3>
+          <p>Strategic collaborations will provide students with internships, funding, and access to industry-scale infrastructure.</p>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-img">🌱</div>
+        <div class="news-body">
+          <div class="news-date">January 10, 2026</div>
+          <h3>AI for Sustainability Initiative Launches This Spring</h3>
+          <p>A new cross-disciplinary program applying machine learning to climate, agriculture, and energy challenges.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Collaborators</div>
+      <h2>Our Global Partners</h2>
+      <p>We collaborate with leading institutions and organizations worldwide.</p>
+    </div>
+    <div class="partners-logos reveal">
+      <div class="partner">PARTNER 1</div>
+      <div class="partner">PARTNER 2</div>
+      <div class="partner">PARTNER 3</div>
+      <div class="partner">PARTNER 4</div>
+      <div class="partner">PARTNER 5</div>
+      <div class="partner">PARTNER 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="apply">
+  <h2>Ready to Shape the Future?</h2>
+  <p>Applications are now open for Fall 2026. Join a community of the world's brightest minds in AI.</p>
+  <a href="#" class="btn btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem">Apply Now →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <a href="#" class="nav-logo" style="font-size:1.3rem"><span style="color:var(--accent)">AI</span> Global University</a>
+      <p>A world-leading research university dedicated to advancing artificial intelligence for the benefit of humanity.</p>
+      <div class="footer-social">
+        <a href="#">𝕏</a><a href="#">in</a><a href="#">▶</a><a href="#">f</a>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#">Admissions</a></li>
+        <li><a href="#">Campus Life</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul class="footer-links">
+        <li><a href="#">Library</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Student Portal</a></li>
+        <li><a href="#">Alumni</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li>📍 Innovation District, Global City</li>
+        <li>📧 admissions@aigu.edu</li>
+        <li>📞 +1 (800) AI-GLOBAL</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 AI Global University. All rights reserved.</div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+
+// Particles
+(()=>{const c=document.getElementById('particles');for(let i=0;i<30;i++){const d=document.createElement('div');d.style.left=Math.random()*100+'%';d.style.animationDuration=(8+Math.random()*12)+'s';d.style.animationDelay=Math.random()*10+'s';c.appendChild(d)}})();
+
+// Reveal on scroll
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Counter animation
+const cObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,target=+el.dataset.target,suffix=target>=100?'+':target<=10?'th':'';let current=0;const step=Math.ceil(target/60);const timer=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(timer)}el.textContent=current+suffix},25);cObs.unobserve(el)}})},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>cObs.observe(el));
+</script>
+</body>
+</html>

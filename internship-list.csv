@@ -1,0 +1,31 @@
+Institute,Program,URL,Eligibility,Duration,Stipend,Deadline,Status,Notes
+IIT Kanpur,SURGE,https://surge.iitk.ac.in/,"UG students from top engineering colleges, Nepal/Bhutan",8 weeks (May 11–Jul 10 2026),Not specified,Feb 2–22 2026 (registration); Mar 23–29 (fee),CLOSED,Registration closed Feb 22 2026
+IIT Madras,Summer Fellowship,https://ssp.iitm.ac.in/summer-fellowship-registration,UG/PG students,~8 weeks (May–Jul),Varies by department,Check portal,CHECK PORTAL,Migrated from sfp.iitm.ac.in
+IIT Gandhinagar,SRIP,https://srip.iitgn.ac.in/info/,UG and Master's students,~8 weeks (May–Jul),Provided,Typically Dec–Feb,CHECK PORTAL,Flagship research internship program
+IIT Roorkee,SPARK,https://spark.iitr.ac.in/,UG students from recognized institutions,~8 weeks,Check portal,Typically Jan–Mar,CHECK PORTAL,Portal active but content minimal on scrape
+IIT Bombay,Research Internship,https://www.iitb.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,Known URL returned 404; contact faculty directly
+IIT Delhi,SURA,https://home.iitd.ac.in/,UG students (primarily IITD students),~8 weeks,Award-based,Varies,URL DEAD,Website unreachable; typically for IITD students
+IIT Kharagpur,Summer Internship,https://www.iitkgp.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,No dedicated internship page; contact departments
+IIT Guwahati,Summer Internship,https://www.iitg.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,Known URL returned 404; contact faculty
+IIT Hyderabad,Summer Research Internship,https://www.iith.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,Known URL returned 404; contact faculty
+IIT BHU,Summer Internship,https://www.iitbhu.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,No dedicated page; contact departments
+IIT Indore,Summer Research Internship,https://www.iiti.ac.in/page/summer-internship,UG students,~8 weeks,Check portal,Check portal,CHECK PORTAL,Page loads with minimal content
+IIT Mandi,Summer Internship,https://www.iitmandi.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,Internship URL redirects to homepage
+IIT Jodhpur,SRIP,https://iitj.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,SRIP page not found
+IIT Patna,Summer Internship,https://iitp.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,Website DNS issues
+IIT Dhanbad (ISM),Summer Internship,https://www.iitism.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,Fetch failed
+IIT Jammu,Summer Internship,https://www.iitjammu.ac.in/summer-internship,UG students,~8 weeks,Varies,Varies,CHECK PORTAL,Page loads with minimal content
+IIT Tirupati,Summer Internship,,UG students,~8 weeks,Varies,Varies,URL DEAD,Website DNS failed
+IIT Palakkad,Summer Internship,https://iitpkd.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,No internship page found
+IIT Goa,Summer Internship,,UG students,~8 weeks,Varies,Varies,URL DEAD,Website unreachable
+IIT Dharwad,Summer Internship,https://www.iitdh.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,No internship page found
+IIT Bhilai,Summer Internship,,UG students,~8 weeks,Varies,Varies,URL DEAD,Website unreachable
+Indian Academy of Sciences,Summer Research Fellowship,https://web-japps.ias.ac.in/,"BSc/BE/BTech 1st–3rd year, MSc",8 weeks (May–Jul),~₹5000/month,Typically Nov 30,LIKELY CLOSED,Joint with INSA & NASI; URL not verified
+IISc Bangalore,Summer Programs,https://www.iisc.ac.in/admissions/,Via IAS fellowship or faculty contact,~8 weeks,Varies,Varies,CHECK WEBSITE,No dedicated summer internship page; use IAS fellowship
+JNCASR,Summer Research Fellowship,https://www.jncasr.ac.in/,UG/PG in science & engineering,~8 weeks,Provided,Typically Jan–Feb,URL DEAD,All tried URLs returned 404
+IIIT Hyderabad,Summer Internship,https://www.iiit.ac.in/,UG in CS/ECE,~8 weeks,Varies,Varies,URL DEAD,No working internship URL found
+IIIT Delhi,Summer Internship,https://iiitd.ac.in/,UG students,~8 weeks,Varies,Varies,URL DEAD,No working internship URL found
+S.N. Bose Scholars,Research Fellowship,,Indian students for US research,~10 weeks,Provided,Varies,URL DEAD,Website DNS failed; may be renamed/merged
+MITACS Globalink,Research Internship,https://www.mitacs.ca/our-programs/globalink-research-internship-students/,India NOT currently eligible,12 weeks (May–Oct),Airfare + stipend,Closed for 2026,CLOSED / INELIGIBLE,India removed from eligible countries list
+Internshala,CS Summer Internships,https://internshala.com/internships/computer-science-internship,All students,Varies,Varies,Always open,ACTIVE,Aggregator platform; filter for summer CS
+LinkedIn,Internship Listings,https://www.linkedin.com/jobs/,All students,Varies,Varies,Always open,ACTIVE,Search: summer internship computer science India

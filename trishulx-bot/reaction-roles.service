@@ -1,0 +1,14 @@
+[Unit]
+Description=TrishulX Reaction Role Bot
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/ubuntu/.openclaw/workspaces/main/trishulx-bot/reaction-roles.py
+Restart=always
+RestartSec=10
+User=ubuntu
+WorkingDirectory=/home/ubuntu/.openclaw/workspaces/main/trishulx-bot
+
+[Install]
+WantedBy=multi-user.target

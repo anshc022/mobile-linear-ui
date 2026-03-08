@@ -1,0 +1,15 @@
+[Unit]
+Description=Booking Monitor - Supabase to Discord
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/.openclaw/workspaces/main/booking-monitor
+Environment=DISCORD_WEBHOOK=https://discord.com/api/webhooks/1473453852660601014/lrluzB3UX_lwpp6Rzsvo45SXiA7OM8x3K59V4JnZlQUSDKtBL6O0U1nMFTI4HeIAMzEp
+ExecStart=/usr/bin/python3 /home/ubuntu/.openclaw/workspaces/main/booking-monitor/monitor.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

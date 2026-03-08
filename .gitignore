@@ -1,0 +1,12 @@
+.env
+*.pem
+*.json
+node_modules/
+dist/
+build/
+.DS_Store
+.openclaw/
+leads/
+memory/
+*.log
+__pycache__/
