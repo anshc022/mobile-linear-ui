@@ -1,0 +1,151 @@
+<!-- 
+  BOLT IMPLEMENTATION GUIDE: "Linear-Style" SaaS UI
+  Structure: Sidebar + Main Content Area
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Engine</title>
+  <link rel="stylesheet" href="linear-theme.css">
+  <!-- Preload Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar (Desktop Only) -->
+  <aside class="sidebar">
+    <div class="logo">
+      <span>FASAL OPS</span>
+    </div>
+    
+    <nav>
+      <!-- Active State Example -->
+      <a href="#" class="active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        Inbox
+        <span style="margin-left:auto; font-size:11px; opacity:0.6">4</span>
+      </a>
+      
+      <a href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        My Issues
+      </a>
+      
+      <div style="height:1px; background:#1e293b; margin: 8px 0;"></div>
+      
+      <div style="padding: 0 8px; font-size: 11px; font-weight: 600; color: #475569; margin-top:8px; text-transform:uppercase;">Views</div>
+      <a href="#">Active</a>
+      <a href="#">Backlog</a>
+    </nav>
+  </aside>
+
+  <!-- Main App Shell -->
+  <main class="app-shell">
+    
+    <!-- Toolbar -->
+    <header class="toolbar">
+      <!-- Search -->
+      <div style="position:relative">
+        <input type="text" class="search-input" placeholder="Search tasks...">
+        <span style="position:absolute; right:8px; top:6px; font-size:10px; color:#94a3b8; border:1px solid #cbd5e1; border-radius:3px; padding:0 4px;">⌘K</span>
+      </div>
+
+      <div style="flex:1"></div>
+
+      <!-- Filters (Dropdowns) -->
+      <button class="filter-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+        Status: All
+      </button>
+      
+      <button class="filter-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+        Project: Fasal
+      </button>
+      
+      <div style="width:1px; height:20px; background:#e2e8f0; margin:0 4px;"></div>
+
+      <button class="filter-btn" style="background:#6366f1; color:white; border-color:transparent">
+        + New Issue
+      </button>
+    </header>
+
+    <!-- Task List (Table View) -->
+    <div class="task-list">
+      
+      <!-- List Header (Optional, good for sorting) -->
+      <div class="task-row" style="height:32px; background:#f8fafc; font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">
+        <div class="col-check"></div>
+        <div class="col-id">ID</div>
+        <div class="col-title">Title</div>
+        <div class="col-status">Status</div>
+        <div class="col-date">Created</div>
+      </div>
+
+      <!-- Item 1 -->
+      <div class="task-row">
+        <div class="col-check"><input type="checkbox"></div>
+        <div class="col-id">F-249</div>
+        <div class="col-title">Fix mobile navigation flickering on scroll</div>
+        <div class="col-status"><span class="badge badge-progress">In Progress</span></div>
+        <div class="col-date">Today</div>
+      </div>
+
+      <!-- Item 2 (Selected state) -->
+      <div class="task-row selected">
+        <div class="col-check"><input type="checkbox" checked></div>
+        <div class="col-id">F-248</div>
+        <div class="col-title">Update API endpoint for user profile sync</div>
+        <div class="col-status"><span class="badge badge-done">Done</span></div>
+        <div class="col-date">Yesterday</div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="task-row">
+        <div class="col-check"><input type="checkbox"></div>
+        <div class="col-id">F-245</div>
+        <div class="col-title">Refactor authentication middleware to support OAuth2</div>
+        <div class="col-status"><span class="badge badge-todo">Todo</span></div>
+        <div class="col-date">Mar 12</div>
+      </div>
+      
+      <!-- More items to fill space -->
+      <div class="task-row">
+        <div class="col-check"><input type="checkbox"></div>
+        <div class="col-id">F-244</div>
+        <div class="col-title">Design system colors update</div>
+        <div class="col-status"><span class="badge badge-todo">Backlog</span></div>
+        <div class="col-date">Mar 10</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Mobile Nav (Visible only on small screens via CSS) -->
+  <nav class="mobile-nav" style="display:none;"> <!-- Hidden by default, shown by media query -->
+    <a href="#" style="color:#6366f1; display:flex; flex-direction:column; align-items:center; font-size:10px; gap:4px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      Home
+    </a>
+    <a href="#" style="color:#64748b; display:flex; flex-direction:column; align-items:center; font-size:10px; gap:4px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      My Tasks
+    </a>
+    <a href="#" style="color:#64748b; display:flex; flex-direction:column; align-items:center; font-size:10px; gap:4px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Create
+    </a>
+  </nav>
+
+  <!-- Script to handle mobile nav visibility for demo purposes -->
+  <style>
+    @media (max-width: 768px) {
+      .mobile-nav { display: flex !important; }
+    }
+  </style>
+
+</body>
+</html>
